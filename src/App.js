@@ -75,7 +75,7 @@ function confirm(){
         
       </div>
       <div className='2'>
-        <input step='2' className='' type="range" min="7" max="20" onChange={change2}/>
+        <input step='2' className='' type="range" min="10" max="20" onChange={change2}/>
       </div>
       <div className='3'>
         <button className='btn' type="button" onClick={confirm}>Click Me!</button>

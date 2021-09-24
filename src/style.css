@@ -124,7 +124,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border: 0.2px solid yellow;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .fixed{
     position: fixed;
     margin: 0px;
