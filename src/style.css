@@ -1,7 +1,39 @@
+*{
+  font-family: monospace;
+}
 body{
   background-color: black;
   margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.logo{
+  font-size: 2rem;
+  color: yellow;
+  margin: 2rem;
+  letter-spacing: 0.8rem;
+}
+::-webkit-scrollbar{
+  width: 0.5rem;
+}
+::-webkit-scrollbar-thumb{
+  background: yellow;
+  
+  
+}
+.grid{
+  display: grid;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: 1fr 4rem;
+}
+.one{
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .container{
   display: flex;
@@ -9,7 +41,17 @@ body{
   align-items: center;
   justify-content: center;
   height: 100vh;
+  margin-top: 10rem;
 }
+.TopLeftParent{
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.relative{
+  position: relative;
+}
+
 .inline{
   display: block;
   font-family: monospace;
@@ -34,6 +76,8 @@ body{
 
 .fixed{
   position: fixed;
+}
+.menuBottom{
   margin: 0px;
   width: 100vw;
   height: 4rem;
@@ -47,6 +91,24 @@ body{
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
+}
+.btn2{
+  background:transparent;
+  text-align: center;
+  color: yellow;
+  padding: 0.2rem 0.5rem;
+  width: 2rem;
+  font-size: 1.4rem;
+  margin: 10px;
+}
+.btn2:hover{
+  border: yellow solid 1.5px;
+  border-radius: 3px;
+  
+}
+.btn2:active{
+  background-color: yellow;
+  color: black;
 }
 .btn{
   display: flex;
@@ -62,6 +124,17 @@ body{
   box-shadow: yellow 2px 2px;
   text-align: center;
 }
+.btn:hover{
+  background: yellow;
+  color: black;
+  box-shadow: yellow 2px 2px;
+}
+.btn:active{
+  background: yellow;
+  color: black;
+  border: black solid 1.5px;
+  box-shadow: yellow 2px 2px;
+}
 .fileLabel{
   display: flex;
   background:black;
@@ -75,6 +148,17 @@ body{
   border: yellow solid 1.5px;
   box-shadow: 2px 2px yellow;
   text-align: center;
+}
+.fileLabel:hover{
+  background:yellow;
+  color: black;
+  
+}
+.fileLabel:active{
+  background:yellow;
+  color: black;
+  border: yellow solid 1.5px;
+  box-shadow: 2px 2px yellow;
 }
 .fileContainer{
   display: flex;
@@ -110,6 +194,9 @@ input[type=range]::-webkit-slider-thumb {
   border: yellow solid 1px;
   margin: -5%;
 }
+input[type=range]::-webkit-slider-thumb:hover {
+  background: yellow;
+}
 input[type=range]:focus {
   outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
@@ -127,19 +214,28 @@ input[type=range]::-webkit-slider-runnable-track {
 @media only screen and (max-width: 500px) {
   .fixed{
     position: fixed;
-    margin: 0px;
+  }
+  .grid{
+    display: grid;
+    flex-direction: column;
     width: 100vw;
-    height: 12rem;
-    bottom: 0px;
+    height: 100vh;
+    grid-template-rows: 1fr 9rem;
   }
   .bar{
     background: black;
     border-top: yellow solid 5px;
     display: flex;
+    padding: 1.5rem 0px;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
+    align-content: center;
+  }
+  .bar>div{
+    align-content: space-between;
+    margin-top: 1.1rem;
   }
   .btn{
     display: flex;
@@ -150,7 +246,7 @@ input[type=range]::-webkit-slider-runnable-track {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    height: 2rem;
+    height: 1.8rem;
     border: yellow solid 1.5px;
     box-shadow: yellow 2px 2px;
     text-align: center;

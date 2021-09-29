@@ -75,11 +75,11 @@ export class asciiart{
     else if(gray<250 && gray>220) return '#';
     else if(gray<220 && gray>190) return 'a';
     else if(gray<190 && gray>160) return 'n';
-    else if(gray<160 && gray>130) return '*';
+    else if(gray<160 && gray>130) return '&';
     else if(gray<130 && gray>100) return '^';
-    else if(gray<100 && gray>70) return '.';
-    else if(gray<70 ) return '&';
-    else return ' ';
+    else if(gray<100 && gray>70) return '*';
+    else if(gray<70 ) return '.';
+    else return '.';
   }
   scanImage(res){
     for(let y=0; y<this.pixels.height; y+=res){
@@ -114,10 +114,10 @@ export class asciiart{
   }
 
    toAscii(canvas,ctx,size){
-    
     this.scanImage(size);
     this.resizeImage(this.img,canvas);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0,canvas.width,canvas.height)
     for(let i=0; i<this.imageCell.length; i++){
       this.imageCell[i].draw(ctx,size);
     }
