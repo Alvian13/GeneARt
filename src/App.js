@@ -75,14 +75,30 @@ function confirm(){
 
 
   return (
-  <div className='grid'>
-    <div className='one'>
-    <h1 className='logo'>GenArt.</h1>
+  <div >
+     <h1 className='logo'>GenArt.</h1>
+    <div className='flex'>
     {load ?
      <h1>loading</h1>:
     <div className='container'>
         <canvas ref={canvas} className='canvas'/>
       </div>}
+
+      <div className='barBox'>
+        <div className='fileContainer'>
+          <input className='file' id='file' type='file'  accept="image/png, image/jpeg" onChange={change}/>
+          <label className='fileLabel' for='file'>choose image</label>
+          {title? <p className='title'>{title}</p>:''}
+        </div>
+      <div className='2'>
+        <input step='2' className='' type="range" min="8" max="20" onChange={change2}/>
+      </div>
+      <div className='3'>
+        <button className='btn' type="button" onClick={confirm}>set it</button>
+      </div>
+      
+    </div>
+
       {load? <h1>loading</h1>:
       <div className='container'>
       <div className='relative'>
@@ -106,21 +122,6 @@ function confirm(){
         })}
         </div>
       </div>}
-      
-    </div>
-
-    <div className='menuBottom bar second'>
-        <div className='fileContainer'>
-          <input className='file' id='file' type='file'  accept="image/png, image/jpeg" onChange={change}/>
-          <label className='fileLabel' for='file'>choose image</label>
-          {title? <p className='title'>{title}</p>:''}
-        </div>
-      <div className='2'>
-        <input step='2' className='' type="range" min="8" max="20" onChange={change2}/>
-      </div>
-      <div className='3'>
-        <button className='btn' type="button" onClick={confirm}>set it</button>
-      </div>
       
     </div>
 
