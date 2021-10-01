@@ -8,6 +8,7 @@ import { ImDownload } from "react-icons/im";
 //loading animation
 
 let ctx2;
+let ctx3;
 let ascii;
 
 
@@ -21,8 +22,10 @@ function App() {
   const [asci, setAsci] = useState([])
   const [load,setLoad] = useState(false)
   const [download,setDownload] = useState()
+  const [download2,setDownload2] = useState()
   const canvas = useRef(null)
   const canvas2 = useRef(null)
+  const canvas3 = useRef(null)
   let ratio;
   
   useEffect(() => {
@@ -38,12 +41,16 @@ function App() {
       setLoad(true);
       const ctx = canvas.current.getContext("2d")
        ctx2 = canvas2.current.getContext("2d")
+       ctx3 = canvas3.current.getContext("2d")
        ascii = new asciiart(image,canvas.current,ctx);
       ascii.toAscii(canvas2.current,ctx2,val);
+      ascii.toRect(canvas3.current,ctx3,val);
       setAsci(ascii.imageCell);
       ratio = ascii.img.width/ascii.img.height;
       const uri = canvas2.current.toDataURL();
+      const uri2 = canvas3.current.toDataURL();
       setDownload(uri);
+      setDownload2(uri2)
       setLoad(false);
     }
   }, [image,val])
@@ -91,7 +98,7 @@ function confirm(){
           {title? <p className='title'>{title}</p>:''}
         </div>
       <div className='2'>
-        <input step='2' className='' type="range" min="8" max="20" onChange={change2}/>
+        <input step='2' className='' type="range" min="5" max="30" onChange={change2}/>
       </div>
       <div className='3'>
         <button className='btn' type="button" onClick={confirm}>set it</button>
@@ -104,24 +111,19 @@ function confirm(){
       <div className='relative'>
           <canvas ref={canvas2}  className='canvas'>
           </canvas>
-          <a href={download} download={`${title}.png`} className='btn2 TopLeftParent' type="button"><ImDownload/></a>
+          <a href={download} download={`${title}ascii.png`} className='btn2 TopLeftParent' type="button"><ImDownload/></a>
       </div>
       </div>}
       
       {load? <h1>loading</h1>:
-      <div className='container overflowHidden'>
-        <div style={{ lineHeight: `${val}px` }} className='inline'>
-        {
-          asci.map((p) => {
-          if(p.y !== 0){
-            if(p.x == 0){
-            return <br/>
-          }
-          return(<p style={{color:`${p.color}`,fontSize:`${val}px`,letterSpacing:`${val*0.6}px`}}>{p.symbol}</p>)
-          }
-        })}
-        </div>
+      <div className='container'>
+      <div className='relative'>
+          <canvas ref={canvas3}  className='canvas'>
+          </canvas>
+          <a href={download2} download={`${title}grid.png`} className='btn2 TopLeftParent' type="button"><ImDownload/></a>
+      </div>
       </div>}
+    
       
     </div>
 

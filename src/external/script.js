@@ -19,17 +19,23 @@ export function toDataUrl(src,callback){
 }
 
 export class cell{
-  constructor(x,y,symbol,color){
+  constructor(x,y,symbol,color,gray,res){
     this.x = x;
     this.y = y;
     this.symbol = symbol;
     this.color = color;
+    this.gray = gray/255;
+    this.res = res*this.gray;
   }
   draw(ctx,size){
     const color = this.color
     ctx.fillStyle = color;
     ctx.font = `${size}px monospace`;
     ctx.fillText(this.symbol, this.x, this.y);
+  }
+  drawRect(ctx){
+    ctx.fillStyle = "white";
+    ctx.fillRect(this.x, this.y, this.res, this.res)
   }
 }
 
@@ -92,7 +98,7 @@ export class asciiart{
           const gray = (red+green+blue)/3;
           const color = `rgb(${red},${green},${blue})`;
           const symbol = this.convertToSymbol(gray);
-          this.imageCell.push(new cell(x,y,symbol,color))
+          this.imageCell.push(new cell(x,y,symbol,color,gray,res))
         //}
       }
     }
@@ -120,6 +126,15 @@ export class asciiart{
     ctx.fillRect(0,0,canvas.width,canvas.height)
     for(let i=0; i<this.imageCell.length; i++){
       this.imageCell[i].draw(ctx,size);
+    }
+  }
+  toRect(canvas,ctx,size){
+    this.scanImage(size);
+    this.resizeImage(this.img,canvas);
+    ctx.fillStyle = "black";
+    ctx.fillRect(0,0,canvas.width,canvas.height)
+    for(let i=0; i<this.imageCell.length; i++){
+      this.imageCell[i].drawRect(ctx);
     }
   }
 
