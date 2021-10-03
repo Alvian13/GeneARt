@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/GeneARt/static/css/main.101fdb3a.chunk.css",
+    "main.js": "/GeneARt/static/js/main.b9b29ab9.chunk.js",
+    "main.js.map": "/GeneARt/static/js/main.b9b29ab9.chunk.js.map",
+    "runtime-main.js": "/GeneARt/static/js/runtime-main.db214d6c.js",
+    "runtime-main.js.map": "/GeneARt/static/js/runtime-main.db214d6c.js.map",
+    "static/js/2.bae2fa55.chunk.js": "/GeneARt/static/js/2.bae2fa55.chunk.js",
+    "static/js/2.bae2fa55.chunk.js.map": "/GeneARt/static/js/2.bae2fa55.chunk.js.map",
+    "index.html": "/GeneARt/index.html",
+    "static/css/main.101fdb3a.chunk.css.map": "/GeneARt/static/css/main.101fdb3a.chunk.css.map",
+    "static/js/2.bae2fa55.chunk.js.LICENSE.txt": "/GeneARt/static/js/2.bae2fa55.chunk.js.LICENSE.txt",
+    "static/media/Earth_nasa.f1d69829.jpg": "/GeneARt/static/media/Earth_nasa.f1d69829.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db214d6c.js",
+    "static/js/2.bae2fa55.chunk.js",
+    "static/css/main.101fdb3a.chunk.css",
+    "static/js/main.b9b29ab9.chunk.js"
+  ]
+}
