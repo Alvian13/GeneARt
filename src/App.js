@@ -7,6 +7,8 @@ import { ImDownload } from "react-icons/im";
 
 //loading animation
 
+
+
 let ctx2;
 let ctx3;
 let ascii;
@@ -27,6 +29,19 @@ function App() {
   const canvas2 = useRef(null)
   const canvas3 = useRef(null)
   let ratio;
+  
+  useEffect(() => {
+    const script = document.createElement('script');
+  
+    script.src = "//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=b442862a-23e3-4920-8839-dae0b6263735";
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
   
   useEffect(() => {
     setLoad(true);
@@ -91,6 +106,10 @@ function confirm(){
         <canvas ref={canvas} className='canvas'/>
       </div>}
 
+      <div className='ads'>
+        <div  id="amzn-assoc-ad-b442862a-23e3-4920-8839-dae0b6263735"></div>
+      </div>
+    
       <div className='barBox'>
         <div className='fileContainer'>
           <input className='file' id='file' type='file'  accept="image/png, image/jpeg" onChange={change}/>

@@ -75,7 +75,14 @@ body{
 .relative{
   position: relative;
 }
-
+.ads{
+  border: 3px solid white;
+  background-color: black;
+  padding: 1.5rem;
+  box-shadow: 10px 15px white;
+  min-width: 40vw;
+  min-height: 8rem;
+}
 .inline{
   display: block;
   font-family: monospace;
